@@ -1,5 +1,6 @@
 package estefania.com.cxpress;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                     case R.id.nav_map:
-                        navController.navigate(R.id.nav_map);
+                        Intent i = new Intent(getApplicationContext(), Mapa.class);
+                        startActivity(i);
                         break;
 
                     case R.id.nav_compras:
