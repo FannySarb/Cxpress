@@ -125,12 +125,14 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
         });
     }
 
+
     private void cargarWebservice() {
 
-        String url="https://appsmoviles2020.000webhostapp.com/nuevoComprador.php?nombre="+editRegistroNombre.getText().toString()+"&correo="+editRegistroCorreo.getText().toString()+
+        String url="https://appsmoviles2020.000webhostapp.com/nuevoComprador.php?nombre="+editRegistroNombre.getText().toString()
+                +"&correo="+editRegistroCorreo.getText().toString()+
                 "&password="+editRegistroPassword.getText().toString()+"&direccion="+editRegistroDireccion.getText().toString();
 
-        //remplazar espacios
+        //remplazar espacios y @
         url=url.replace(" ","%20");
         url=url.replace("@","%40");
 
@@ -139,20 +141,26 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
         request.add(jsonObjectRequest);
     }
 
+
+    // en caso de que no se haya obtenido despecsa
     @Override
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(this, "No ha sido posible crear una cuenta", Toast.LENGTH_SHORT).show();
     }
 
+    // en caso de que si haya respuesta
     @Override
     public void onResponse(JSONObject response) {
 
+        //borra los campos
         editRegistroDireccion.setText("");
         editRegistroPassword.setText("");
         editRegistroCorreo.setText("");
         editRegistroNombre.setText("");
         editRegistroConfirmation.setText("");
 
+
+        //mensaje de confirmación
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("¡Felicidades!");
         dialogo1.setMessage("Ya has creado una cuenta en Cxpress, ahora inicia sesión");
