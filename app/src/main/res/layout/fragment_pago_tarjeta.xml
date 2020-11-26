@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PagoTarjetaFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="357dp"
+        android:layout_height="127dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round"
+        android:elevation="2dp">
+
+        <TextView
+            android:id="@+id/Negocio"
+            android:layout_width="297dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="72dp"
+            android:text="TextView"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="180dp"
+        android:text="Pago electrónico"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="357dp"
+        android:layout_height="341dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="230dp"
+        android:background="@drawable/bordes"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/impFecha"
+            android:layout_width="183dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/impCvv"
+            app:layout_constraintEnd_toStartOf="@+id/impCvv"
+            app:layout_constraintTop_toTopOf="@+id/impCvv"
+            app:layout_constraintVertical_bias="0.0">
+
+            <EditText
+                android:id="@+id/fechaExp"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:drawableLeft="@drawable/ic_date_24dp"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Fecha de expiración"
+                android:inputType="date"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.646" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/impNomTarj"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/impDireccion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/nombreTarjeta"
+                android:layout_width="326dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Nombre del propietario de la tarjeta"
+                android:inputType="textPersonName"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/impDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/impnumTarj"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/impNomTarj">
+
+            <EditText
+                android:id="@+id/direccion"
+                android:layout_width="322dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="76dp"
+                android:drawableLeft="@drawable/ic_home_black_24dp"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Domicilio"
+                android:inputType="textPersonName"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/impCvv"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="50dp"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/impnumTarj">
+
+            <EditText
+                android:id="@+id/cvv"
+                android:layout_width="117dp"
+                android:layout_height="39dp"
+                android:drawableLeft="@drawable/ic_cvv"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="CVV"
+                android:inputType="number"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.92"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="194dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/impnumTarj"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/impCvv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/impDireccion">
+
+            <EditText
+                android:id="@+id/numTarjeta"
+                android:layout_width="322dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:drawableLeft="@drawable/ic_credit_card_black_24dp"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Número de tarjeta"
+                android:inputType="number"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="132dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/botones"
+        android:text="Pagar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="2dp"/>
+
+
+</FrameLayout>
