@@ -161,6 +161,7 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
 
 
         //mensaje de confirmación
+
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("¡Felicidades!");
         dialogo1.setMessage("Ya has creado una cuenta en Cxpress, ahora inicia sesión");

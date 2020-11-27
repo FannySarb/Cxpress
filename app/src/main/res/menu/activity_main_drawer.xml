@@ -15,7 +15,7 @@
 
         <item
             android:id="@+id/nav_editar"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_nombre"
             android:title="Editar perfil" />
     </group>
 
