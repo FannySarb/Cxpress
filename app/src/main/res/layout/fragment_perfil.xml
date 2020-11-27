@@ -10,28 +10,19 @@
         android:layout_width="281dp"
         android:layout_height="419dp"
         android:layout_marginTop="102dp"
+        android:background="@drawable/bordes_color"
+        android:elevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:elevation="2dp"
-        android:background="@drawable/bordes_color"
-        >
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars[0]" />
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark">
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre"
+            android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +38,7 @@
             android:layout_marginEnd="204dp"
             android:layout_marginRight="204dp"
             android:text="Correo"
+            android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Direccion" />
@@ -58,16 +50,19 @@
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="13dp"
+            android:layout_marginBottom="139dp"
             android:text="Dirección"
+            android:textSize="16dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Nombre" />
+            app:layout_constraintTop_toBottomOf="@+id/foto2" />
 
         <TextView
             android:id="@+id/Nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="Ana Paula Sarmiento"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toTopOf="parent"
@@ -78,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="TextView"
+            android:text="usuario1@gmail.com"
             app:layout_constraintStart_toStartOf="@+id/email"
             app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -87,9 +82,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text="Del Tepeyac #3, San Sebastián"
             app:layout_constraintStart_toStartOf="@+id/direction"
             app:layout_constraintTop_toBottomOf="@+id/direction" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/foto2"
+            android:layout_width="129dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="91dp"
+            android:src="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/direction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

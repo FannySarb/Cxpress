@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_map, R.id.nav_perfil,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_editar)
+                R.id.nav_tools, R.id.nav_share, R.id.nav_editar, R.id.nav_fyv)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_map:
                         Intent i = new Intent(getApplicationContext(), Mapa.class);
                         startActivity(i);
-                        break;
 
                     case R.id.nav_compras:
                         navController.navigate(R.id.nav_tools);

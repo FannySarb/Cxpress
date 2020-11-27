@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bordes"
+                android:background="@drawable/ripple_botones"
                 app:srcCompat="@drawable/ic_002_carne" />
 
             <TextView
@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bordes"
+                android:background="@drawable/ripple_botones"
                 app:srcCompat="@drawable/ic_003_mariscos" />
 
             <TextView
