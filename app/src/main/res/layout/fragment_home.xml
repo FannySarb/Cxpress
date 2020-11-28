@@ -137,12 +137,13 @@
             android:elevation="2dp"
             app:cardCornerRadius="20dp">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/abarrotes"
-                android:layout_width="106dp"
-                android:layout_height="wrap_content"
+                android:layout_width="134dp"
+                android:layout_height="128dp"
                 android:layout_gravity="center|top"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/ripple_botones"
                 app:srcCompat="@drawable/ic_004_comestibles" />
 
             <TextView
