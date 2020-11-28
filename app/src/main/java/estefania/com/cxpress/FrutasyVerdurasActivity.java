@@ -26,7 +26,7 @@ public class FrutasyVerdurasActivity extends AppCompatActivity implements Respon
         ArrayList<String> nombres;
         ArrayList<String> mercados;
         NegociosListAdapter adapter;
-        int idVendedor = 1;
+        int idCategoria = 1;
 
         ImageButton imgBtnRegresar;
         Button btnNuevoNegocio;
@@ -48,7 +48,7 @@ protected void onCreate(Bundle savedInstanceState) {
         }
 
         void  cargarDatos() {
-        String URL = "https://appsmoviles2020.000webhostapp.com/vendedor/getNegociosVendedor.php?idVendedor="+idVendedor;
+        String URL = "https://appsmoviles2020.000webhostapp.com/cliente/getCategorias.php?idCategoria="+idCategoria;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this, this);
         request.add(jsonObjectRequest);

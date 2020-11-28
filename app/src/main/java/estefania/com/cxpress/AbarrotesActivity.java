@@ -1,12 +1,16 @@
 package estefania.com.cxpress;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -14,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +31,7 @@ public class AbarrotesActivity extends AppCompatActivity implements Response.Lis
     ArrayList<String> nombres;
     ArrayList<String> mercados;
     NegociosListAdapter adapter;
-    int idVendedor = 1;
+    int idCategoria = 4;
 
     ImageButton imgBtnRegresar;
     Button btnNuevoNegocio;
@@ -40,15 +45,41 @@ public class AbarrotesActivity extends AppCompatActivity implements Response.Lis
         setContentView(R.layout.activity_abarrotes);
 
 
+        BottomNavigationView bnv=findViewById(R.id.bottom_nav_view);
+
+        Fragment selectedFragment = null;
+
+
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()) {
+
+                    case R.id.nav_home:
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                        break;
+
+                }
+                return true;
+            }
+        });
+
+
 
         request = Volley.newRequestQueue(this);
 
 
         cargarDatos();
+
+
+
+
     }
 
     void  cargarDatos() {
-        String URL = "https://appsmoviles2020.000webhostapp.com/vendedor/getNegociosVendedor.php?idVendedor="+idVendedor;
+        String URL = "https://appsmoviles2020.000webhostapp.com/cliente/getCategorias.php?idCategoria="+idCategoria;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this, this);
         request.add(jsonObjectRequest);

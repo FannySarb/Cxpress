@@ -26,7 +26,7 @@ public class CarnesActivity extends AppCompatActivity implements Response.Listen
     ArrayList<String> nombres;
     ArrayList<String> mercados;
     NegociosListAdapter adapter;
-    int idVendedor = 1;
+    int idCategoria = 2;
 
     ImageButton imgBtnRegresar;
     Button btnNuevoNegocio;
@@ -48,7 +48,7 @@ public class CarnesActivity extends AppCompatActivity implements Response.Listen
     }
 
     void  cargarDatos() {
-        String URL = "https://appsmoviles2020.000webhostapp.com/vendedor/getNegociosVendedor.php?idVendedor="+idVendedor;
+        String URL = "https://appsmoviles2020.000webhostapp.com/cliente/getCategorias.php?idCategoria="+idCategoria;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this, this);
         request.add(jsonObjectRequest);
