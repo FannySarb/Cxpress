@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AbarrotesActivity"></activity>
+        <activity android:name=".NegociosActivity"></activity>
+        <activity android:name=".AbarrotesActivity" />
         <activity android:name=".MariscosActivity" />
         <activity android:name=".CarnesActivity" />
         <activity android:name=".FrutasyVerdurasActivity" />

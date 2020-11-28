@@ -34,12 +34,11 @@ public class HomeFragment extends Fragment {
         btnFyv= root.findViewById(R.id.frutyverd);
         btnCarnes= root.findViewById(R.id.carnes);
         btnMariscos= root.findViewById(R.id.mariscos);
-        btnAbarrotes= root.findViewById(R.id.frutyverd);
+        btnAbarrotes= root.findViewById(R.id.abarrotes);
 
       btnFyv.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-
               Intent i = new Intent(getContext(), FrutasyVerdurasActivity.class);
               startActivity(i);
           }

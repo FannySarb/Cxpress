@@ -1,6 +1,7 @@
 package estefania.com.cxpress;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -21,7 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class CarnesActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
+public class NegociosActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
     ArrayList<Integer> idNegocios;
     ArrayList<String> nombres;
     ArrayList<String> mercados;
@@ -37,11 +38,19 @@ public class CarnesActivity extends AppCompatActivity implements Response.Listen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_carnes);
+        setContentView(R.layout.activity_negocios);
 
-
+        imgBtnRegresar = findViewById(R.id.imgBtnRegresar);
 
         request = Volley.newRequestQueue(this);
+
+        imgBtnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
 
         cargarDatos();

@@ -7,11 +7,18 @@ public class Negocios {
     String foto;
     String hapertura;
     String hcierre;
-    int idMercado;
+    String idMercado;
     int idVendedor;
 
-    public Negocios(int id, String nombre) {
+    public Negocios() {
     }
+
+    public Negocios(String nombre, String idMercado) {
+        this.nombre = nombre;
+        this.idMercado = idMercado;
+    }
+
+
 
     public int getId() {
         return id;
@@ -61,11 +68,11 @@ public class Negocios {
         this.hcierre = hcierre;
     }
 
-    public int getIdMercado() {
+    public String getIdMercado() {
         return idMercado;
     }
 
-    public void setIdMercado(int idMercado) {
+    public void setIdMercado(String idMercado) {
         this.idMercado = idMercado;
     }
 
