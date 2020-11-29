@@ -34,12 +34,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng mS = new LatLng(19.1013156, -98.1588148);
+        LatLng mS = new LatLng(19.0926989,-98.125484);
         MarkerOptions m0 = new MarkerOptions();
-        m0.position(mS).title("Mercado Semanal de San Sebastián");
+        m0.position(mS).title("Mercado Hnos. García");
         m0.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_mercado));
-        mMap.addMarker(m0);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(mS));
+
 
         LatLng mZ= new LatLng(19.0701337, -98.1765127);
         MarkerOptions m1 = new MarkerOptions();
