@@ -1,27 +1,14 @@
 package estefania.com.cxpress.login;
 
-import android.app.Activity;
-
-import androidx.annotation.MainThread;
-import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,26 +16,20 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 import estefania.com.cxpress.MainActivity;
 import estefania.com.cxpress.R;
 import estefania.com.cxpress.RegistroUsuario;
-import estefania.com.cxpress.data.model.Comprador;
 
-public class LoginActivity extends AppCompatActivity  {
+public class LoginActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
     EditText txtUsuario, txtPasswd;
     Button btnIngresar, btnRegistrar;
@@ -56,6 +37,8 @@ public class LoginActivity extends AppCompatActivity  {
     boolean user = false;
     boolean pass = false;
     String usuario, passwd;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
 
 
 
@@ -159,10 +142,15 @@ public class LoginActivity extends AppCompatActivity  {
     }
 
 
+    @Override
+    public void onErrorResponse(VolleyError error) {
 
+    }
 
+    @Override
+    public void onResponse(JSONObject response) {
 
-
+    }
 }
 
 

@@ -1,5 +1,6 @@
 package estefania.com.cxpress;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ public class NegociosActivity extends AppCompatActivity implements Response.List
     ArrayList<String> nombres;
     ArrayList<String> mercados;
     NegociosListAdapter adapter;
-    int idVendedor = 1;
+
 
     ImageButton imgBtnRegresar;
     Button btnNuevoNegocio;
@@ -57,7 +58,13 @@ public class NegociosActivity extends AppCompatActivity implements Response.List
     }
 
     void  cargarDatos() {
-        String URL = "https://appsmoviles2020.000webhostapp.com/vendedor/getNegociosVendedor.php?idVendedor="+idVendedor;
+
+        Intent intent = this.getIntent();
+        Bundle extra = intent.getExtras();
+
+        int idMercado = extra.getInt("idMercado");
+
+        String URL = "https://appsmoviles2020.000webhostapp.com/vendedor/getNegociosVendedor.php?idVendedor="+idMercado;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this, this);
         request.add(jsonObjectRequest);

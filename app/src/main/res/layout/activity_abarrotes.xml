@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".NegociosActivity">
 
+
     <ImageButton
         android:id="@+id/imgBtnRegresar"
         style="@style/Widget.AppCompat.Button.Borderless"

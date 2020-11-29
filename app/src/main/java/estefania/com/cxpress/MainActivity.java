@@ -62,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_map:
-
+                        Intent i = new Intent(getApplicationContext(), MapsActivity.class);
+                        startActivity(i);
+                        break;
 
                     case R.id.nav_compras:
                         navController.navigate(R.id.nav_tools);
