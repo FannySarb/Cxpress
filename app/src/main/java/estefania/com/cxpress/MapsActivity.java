@@ -38,6 +38,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions m0 = new MarkerOptions();
         m0.position(mS).title("Mercado Hnos. García");
         m0.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_mercado));
+        mMap.addMarker(m0);
 
 
         LatLng mZ= new LatLng(19.0701337, -98.1765127);

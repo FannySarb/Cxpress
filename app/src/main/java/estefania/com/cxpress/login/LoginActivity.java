@@ -1,5 +1,6 @@
 package estefania.com.cxpress.login;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
@@ -31,28 +33,29 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
     EditText txtUsuario, txtPasswd;
     Button btnIngresar, btnRegistrar;
     TextInputLayout impUsuario, impPasswd;
-    boolean user = false;
-    boolean pass = false;
-    String usuario, passwd;
+    boolean user=false;
+    boolean pass=false;
+    ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //aqui se llama a la funcion para verificar antes que el resto
         verificarSesion();
+
         txtUsuario = findViewById(R.id.Usuario);
         txtPasswd = findViewById(R.id.Password);
         btnIngresar = findViewById(R.id.Ingresar);
         btnRegistrar = findViewById(R.id.Registro);
+
         impUsuario = findViewById(R.id.impUsuario);
         impPasswd = findViewById(R.id.impPassword);
-        usuario=txtUsuario.getText().toString();
-        passwd=txtPasswd.getText().toString();
+
+        request = Volley.newRequestQueue(this);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,60 +64,47 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
                 startActivity(i);
             }
         });
-
-        btnIngresar.setOnClickListener(new View.OnClickListener()
-        {
+        btnIngresar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                //validar con patrón la estructura del usuario (correo) -> valida .matcher
-                if(Patterns.EMAIL_ADDRESS.matcher(txtUsuario.getText().toString()).matches()==false)
-                {
-                    impUsuario.setError("Ingresa un usuario válido");
-                    user=false;
-                }
-                else {
-
+                //Validaciones correo
+                if (Patterns.EMAIL_ADDRESS.matcher(txtUsuario.getText().toString()).matches() == false) {
+                    impUsuario.setError("Ingrese un correo válido");
+                    user = false;
+                } else {
                     impUsuario.setError(null);
                     user = true;
                 }
-
-                if(usuario.isEmpty())
-                {
-                    impUsuario.setError("Ingresa una usuario");
-                    user=false;
-                }
-                else {
-
+                if (txtUsuario.getText().toString().isEmpty()) {
+                    impUsuario.setError("Campo de usuario esta vacío");
+                    user = false;
+                } else {
                     impUsuario.setError(null);
                     user = true;
                 }
-
-                if(txtPasswd.getText().toString().isEmpty())
-                {
-                    impPasswd.setError("Ingresa una contraseña");
-                    pass=false;
-                }
-                else {
-
+                //Validaciones contraseña
+                if (txtPasswd.getText().toString().isEmpty()) {
+                    impPasswd.setError("Campo de contraseña está vacío");
+                    pass = false;
+                } else {
                     impPasswd.setError(null);
                     pass = true;
                 }
 
-                // para hacer la autenticación
-                if(user && pass)
-                {
-                    Validar(usuario,passwd);
+                // para hacer la autenticación provicional
+                if (user && pass) {
+                    String correo = txtUsuario.getText().toString();
+                    String clave = txtPasswd.getText().toString();
+                    login(correo, clave);
                 }
             }
-
-
         });
-
     }
 
-    private void Validar(final String correo, final String password) {
+    void  login(final String correo, final String password) {
+
 
         String URL = "https://appsmoviles2020.000webhostapp.com/cliente/validarComprador.php?correo="+correo+"&password="+password;
         URL = URL.replaceAll("@", "%40");
@@ -123,9 +113,9 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         request.add(jsonObjectRequest);
     }
 
-
     @Override
     public void onErrorResponse(VolleyError error) {
+        progreso.show();
         error.printStackTrace();
         Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show();
     }
@@ -166,7 +156,6 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         }
     }
 }
-
 
 
 

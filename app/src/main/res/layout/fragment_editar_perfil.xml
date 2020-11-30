@@ -7,184 +7,156 @@
     tools:context=".RegistroUsuario">
 
 
+
+
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/foto"
-        android:layout_width="129dp"
-        android:layout_height="138dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
+        android:id="@+id/imgBtnFotoPerfil"
+        android:layout_width="136dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/ic_person_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnFoto"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:elevation="2dp"
+        android:background="@drawable/bordes"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgBtnFotoPerfil" >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="347dp"
+            android:layout_height="291dp"
+            app:cardCornerRadius="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/impCorreoPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/editCorreoPerfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawableLeft="@drawable/ic_001_arroba"
+                    android:drawablePadding="5dp"
+                    android:hint="Correo"
+                    android:inputType="textEmailAddress"
+                    android:selectAllOnFocus="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/impNombrePerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/editNombrePerfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawableLeft="@drawable/ic_nombre"
+                    android:drawablePadding="5dp"
+                    android:hint="Nombre"
+                    android:inputType="textPersonName"
+                    android:selectAllOnFocus="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/impPasswordPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="210dp"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/editPasswordPerfil"
+                    android:layout_width="319dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawableLeft="@drawable/ic_password"
+                    android:drawablePadding="5dp"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:selectAllOnFocus="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/impDireccionPerfil"
+                android:layout_width="324dp"
+                android:layout_height="61dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="150dp">
+
+                <EditText
+                    android:id="@+id/editDireccionPerfil"
+                    android:layout_width="313dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:drawableLeft="@drawable/ic_home_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:hint="Direccion"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <Button
-        android:id="@+id/btnActualizar"
-        android:layout_width="299dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
+        android:id="@+id/btnGuardarPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="@drawable/botones"
-        android:elevation="2dp"
-        android:text="Actualizar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/constraintLayout4"
-        android:layout_width="352dp"
-        android:layout_height="361dp"
-        android:layout_marginBottom="159dp"
-        android:elevation="2dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFoto">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/impRegistroNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <EditText
-                android:id="@+id/editRegistroNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:drawableLeft="@drawable/ic_nombre"
-                android:drawablePadding="10dp"
-                android:hint="Nombre"
-                android:inputType="text"
-                android:selectAllOnFocus="true"
-                android:text="Ana Paula Sarmiento"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/impRegistroDireccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <EditText
-                android:id="@+id/editRegistroDireccion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:drawableLeft="@drawable/ic_home_black_24dp"
-                android:drawablePadding="10dp"
-                android:hint="Direccion"
-                android:inputType="text"
-                android:selectAllOnFocus="true"
-                android:text="Del Tepeyac 3, San Sebastián"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/impRegistroCorreo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="140dp">
-
-            <EditText
-                android:id="@+id/editRegistroCorreo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:drawableLeft="@drawable/ic_001_arroba"
-                android:drawablePadding="10dp"
-                android:hint="Correo electóronico"
-                android:inputType="textEmailAddress"
-                android:selectAllOnFocus="true"
-                android:text="usuario1@gmail.com" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/impRegistroConfirmation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="280dp">
-
-            <EditText
-                android:id="@+id/editRegistroConfirmation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-
-                android:drawableLeft="@drawable/ic_candado"
-                android:drawablePadding="10dp"
-                android:hint="Confirmación"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:selectAllOnFocus="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Usuario" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/impRegistroPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="210dp"
-            app:layout_constraintVertical_bias="0.416">
-
-            <EditText
-                android:id="@+id/editRegistroPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-
-                android:drawableLeft="@drawable/ic_password"
-                android:drawablePadding="10dp"
-                android:hint="Contraseña"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:selectAllOnFocus="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Usuario" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </androidx.cardview.widget.CardView>
+        android:paddingHorizontal="5dp"
+        android:text="Guardar Cambios"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout2" />
 
     <Button
-        android:id="@+id/btnFoto"
-        android:layout_width="44dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="77dp"
-        android:layout_marginRight="77dp"
-        android:layout_marginBottom="46dp"
-        android:background="@drawable/ic_menu_camera"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/btnCancelarPerfil"
+        android:layout_width="143dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/botones"
+        android:paddingHorizontal="5dp"
+        android:text="Cancelar"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

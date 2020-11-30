@@ -1,4 +1,4 @@
-package estefania.com.cxpress.ui.share;
+package estefania.com.cxpress.ui.CerrarSesion;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

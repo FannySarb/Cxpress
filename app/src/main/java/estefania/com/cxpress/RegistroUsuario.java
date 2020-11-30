@@ -1,5 +1,6 @@
 package estefania.com.cxpress;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,22 +20,32 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONObject;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import estefania.com.cxpress.login.LoginActivity;
 
 
-public class RegistroUsuario extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
+public class
+RegistroUsuario extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
     EditText editRegistroNombre, editRegistroDireccion, editRegistroCorreo, editRegistroPassword, editRegistroConfirmation;
     Button btnRegistrarse;
     TextInputLayout impRegistroNombre, impRegistroDireccion, impRegistroCorreo, impRegistroPassword, impRegistroConfirmation;
     boolean nombre = false, direccion = false, correo = false, password = false, confirmation = false;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+    ProgressDialog progreso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +65,21 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
         impRegistroCorreo = findViewById(R.id.impRegistroCorreo);
         impRegistroPassword = findViewById(R.id.impRegistroPassword);
         impRegistroConfirmation = findViewById(R.id.impRegistroConfirmation);
+
+        Places.initialize(getApplicationContext(),"AIzaSyDMOsqnvLh_v094mDp4F_NXQEuEu81AGXY");
+
+        editRegistroDireccion.setFocusable(false);
+        editRegistroDireccion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS, Place.Field.LAT_LNG,Place.Field.NAME);
+
+                Intent intent=new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fieldList).build(RegistroUsuario.this);
+
+                startActivityForResult(intent, 100);
+            }
+        });
 
         request= Volley.newRequestQueue(this);
 
@@ -80,7 +107,7 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
                             direccion = true;
                         }
 
-                        if (Patterns.EMAIL_ADDRESS.matcher(editRegistroCorreo.getText().toString()).matches() == false) {
+                        if (!Patterns.EMAIL_ADDRESS.matcher(editRegistroCorreo.getText().toString()).matches()) {
                             impRegistroCorreo.setError("Correo inválido");
                             correo = false;
                         } else {
@@ -90,14 +117,14 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
 
                         Pattern p = Pattern.compile("[0-9][0-9][0-9][0-9][0-9][0-9]");
 
-                        if (p.matcher(editRegistroPassword.getText().toString()).matches() == false) {
+                        if (!p.matcher(editRegistroPassword.getText().toString()).matches()) {
                             impRegistroPassword.setError("Contraseña inválida");
                             password = false;
                         } else {
                             impRegistroPassword.setError(null);
                             password = true;
                         }
-                        if (p.matcher(editRegistroConfirmation.getText().toString()).matches() == false) {
+                        if (!p.matcher(editRegistroConfirmation.getText().toString()).matches()) {
                             impRegistroConfirmation.setError("Confirmación inválida");
                             confirmation = false;
                         } else {
@@ -128,7 +155,7 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
 
     private void cargarWebservice() {
 
-        String url="https://appsmoviles2020.000webhostapp.com/nuevoComprador.php?nombre="+editRegistroNombre.getText().toString()
+        String url="https://appsmoviles2020.000webhostapp.com/cliente/nuevoComprador.php?nombre="+editRegistroNombre.getText().toString()
                 +"&correo="+editRegistroCorreo.getText().toString()+
                 "&password="+editRegistroPassword.getText().toString()+"&direccion="+editRegistroDireccion.getText().toString();
 
@@ -145,6 +172,7 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
     // en caso de que no se haya obtenido despecsa
     @Override
     public void onErrorResponse(VolleyError error) {
+
         Toast.makeText(this, "No ha sido posible crear una cuenta", Toast.LENGTH_SHORT).show();
     }
 
@@ -172,5 +200,21 @@ public class RegistroUsuario extends AppCompatActivity implements Response.Liste
             }
         });
         dialogo1.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 100 && resultCode == RESULT_OK) {
+            Place place = Autocomplete.getPlaceFromIntent(data);
+            editRegistroDireccion.setText(place.getAddress());
+
+        } else if (resultCode == AutocompleteActivity.RESULT_ERROR)
+        {
+            Status status=Autocomplete.getStatusFromIntent(data);
+            Toast.makeText(getApplicationContext(), status.getStatusMessage(), Toast.LENGTH_SHORT).show();
+
+        }
     }
 }

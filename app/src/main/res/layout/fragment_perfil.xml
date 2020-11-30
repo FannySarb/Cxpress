@@ -5,100 +5,149 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="281dp"
-        android:layout_height="419dp"
-        android:layout_marginTop="102dp"
-        android:background="@drawable/bordes_color"
-        android:elevation="2dp"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgBtnFotoPerfil"
+        android:layout_width="136dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_person_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="313dp"
+        android:layout_height="201dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/bordes_color"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:outlineAmbientShadowColor="@color/colorPrimaryDark">
+        app:layout_constraintVertical_bias="0.44">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.143"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="204dp"
-            android:layout_marginRight="204dp"
-            android:text="Correo"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Direccion" />
-
-        <TextView
-            android:id="@+id/direction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="139dp"
-            android:text="Dirección"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/foto2" />
-
-        <TextView
-            android:id="@+id/Nombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ana Paula Sarmiento"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/name"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/impNombrePerfil"
+            android:layout_width="308dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.572" />
+            app:prefixText="Nombre">
 
-        <TextView
-            android:id="@+id/Correo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="usuario1@gmail.com"
-            app:layout_constraintStart_toStartOf="@+id/email"
-            app:layout_constraintTop_toBottomOf="@+id/email" />
+            <TextView
+                android:id="@+id/editNombrePerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableLeft="@drawable/ic_nombre"
+                android:drawablePadding="5dp"
+                android:fallbackLineSpacing="false"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
 
-        <TextView
-            android:id="@+id/Direccion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Del Tepeyac #3, San Sebastián"
-            app:layout_constraintStart_toStartOf="@+id/direction"
-            app:layout_constraintTop_toBottomOf="@+id/direction" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/foto2"
-            android:layout_width="129dp"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="91dp"
-            android:src="@color/colorAccent"
-            app:layout_constraintBottom_toTopOf="@+id/direction"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/impCorreoPerfil"
+            android:layout_width="304dp"
+            android:layout_height="58dp"
+            android:padding="5dp"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/impNombrePerfil"
+            app:prefixText="Correo electrónico">
+
+            <TextView
+                android:id="@+id/editCorreoPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableLeft="@drawable/ic_001_arroba"
+                android:drawablePadding="5dp"
+                android:hint="correo"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/impPasswordPerfil"
+            android:layout_width="306dp"
+            android:layout_height="63dp"
+            android:padding="5dp"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/impCorreoPerfil"
+            app:prefixText="Dirección">
+
+            <TextView
+                android:id="@+id/editDireccionPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableLeft="@drawable/ic_home_black_24dp"
+                android:drawablePadding="5dp"
+                android:hint="direccion"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="281dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/ripple_botones"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="80dp"
+            android:text="Mis métodos de págo"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="16dp" />
+
+        <ImageButton
+            android:id="@+id/mPago"
+            android:layout_width="67dp"
+            android:layout_height="66dp"
+            android:layout_gravity="center|top"
+            android:background="@drawable/ripple_botones"
+            android:paddingTop="10dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_pago" />
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
