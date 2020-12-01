@@ -1,7 +1,6 @@
 package estefania.com.cxpress;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,27 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class NegociosListAdapter extends BaseAdapter {
     Context context;
@@ -67,8 +52,6 @@ public class NegociosListAdapter extends BaseAdapter {
     public  class Holder {
         TextView txtViewItemNombreNegocio;
         TextView txtViewItemMercadoNegocio;
-        Button btnEditarItemNegocio;
-        Button btnEliminarItemNegocio;
         ImageView imgItemNegocio;
     }
 
@@ -80,8 +63,7 @@ public class NegociosListAdapter extends BaseAdapter {
         row = inflater.inflate(R.layout.negocio_item, null);
         holder.txtViewItemNombreNegocio = row.findViewById(R.id.txtViewItemNombreNegocio);
         holder.txtViewItemMercadoNegocio = row.findViewById(R.id.txtViewItemMercadoNegocio);
-        holder.btnEditarItemNegocio = row.findViewById(R.id.btnEditarItemNegocio);
-        holder.btnEliminarItemNegocio = row.findViewById(R.id.btnEliminarItemNegocio);
+
         holder.imgItemNegocio = row.findViewById(R.id.imgItemNegocio);
 
         holder.txtViewItemNombreNegocio.setText(nombres.get(position));
@@ -99,53 +81,6 @@ public class NegociosListAdapter extends BaseAdapter {
             }
         }
 
-        holder.btnEliminarItemNegocio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-                dialog.setMessage("¿Seguro que desea eliminar el negocio?").setPositiveButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }).setNegativeButton("Eliminar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String URL = "https://appsmoviles2020.000webhostapp.com/vendedor/eliminarNegocio.php";
-
-                        RequestQueue request = Volley.newRequestQueue(context);
-                        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                System.out.println(response);
-                                Toast.makeText(context, "Negocio Eliminado", Toast.LENGTH_SHORT).show();
-                                idNegocios.remove(position);
-                                nombres.remove(position);
-                                mercados.remove(position);
-                                fotos.remove(position);
-                                notifyDataSetChanged();
-                            }
-                        }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show();
-                            }
-                        }){
-                            @Override
-                            protected Map<String, String> getParams() throws AuthFailureError {
-                                Map<String, String> params = new HashMap<>();
-                                params.put("idNegocio", String.valueOf(idNegocios.get(position)));
-
-                                return params;
-                            }
-                        };
-                        request.add(stringRequest);
-                    }
-                });
-                dialog.create();
-                dialog.show();
-            }
-        });
 
         row.setOnClickListener(new View.OnClickListener() {
             @Override

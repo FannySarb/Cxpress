@@ -44,7 +44,7 @@
         <activity android:name=".AbarrotesActivity" />
         <activity android:name=".MariscosActivity" />
         <activity android:name=".CarnesActivity" />
-        <activity android:name=".FrutasyVerdurasActivity" />
+        <activity android:name=".NegociosCategoriasActivity" />
         <activity
             android:name=".splash"
             android:configChanges="orientation|keyboardHidden|screenSize"

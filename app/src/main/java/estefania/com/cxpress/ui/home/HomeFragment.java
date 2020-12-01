@@ -11,10 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import estefania.com.cxpress.AbarrotesActivity;
-import estefania.com.cxpress.CarnesActivity;
-import estefania.com.cxpress.MariscosActivity;
-import estefania.com.cxpress.NegociosActivity;
+import estefania.com.cxpress.NegociosCategoriasActivity;
 import estefania.com.cxpress.R;
 
 
@@ -39,32 +36,48 @@ public class HomeFragment extends Fragment {
       btnFyv.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              Intent i = new Intent(getContext(), NegociosActivity.class);
-              startActivity(i);
+              Intent i = new Intent(getContext(), NegociosCategoriasActivity.class);
+              Bundle bundle = new Bundle();
+              bundle.putInt("idCategoria", 1);
+              bundle.putString("categoria", "Frutas y verduras");
+              i.putExtra("datos", bundle);
+              getContext().startActivity(i);
           }
       });
 
         btnCarnes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), CarnesActivity.class);
-                startActivity(i);
+                Intent i = new Intent(getContext(), NegociosCategoriasActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("idCategoria", 2);
+                bundle.putString("categoria", "Carnes");
+                i.putExtra("datos", bundle);
+                getContext().startActivity(i);
             }
         });
 
         btnMariscos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), MariscosActivity.class);
-                startActivity(i);
+                Intent i = new Intent(getContext(), NegociosCategoriasActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("idCategoria", 3);
+                bundle.putString("categoria", "Mariscos");
+                i.putExtra("datos", bundle);
+                getContext().startActivity(i);
             }
         });
 
         btnAbarrotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), AbarrotesActivity.class);
-                startActivity(i);
+                Intent i = new Intent(getContext(), NegociosCategoriasActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("idCategoria", 4);
+                bundle.putString("categoria", "Abarrotes");
+                i.putExtra("datos", bundle);
+                getContext().startActivity(i);
             }
         });
         return root;
