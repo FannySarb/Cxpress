@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -71,7 +70,7 @@ public class NegociosCategoriasActivity extends AppCompatActivity implements Res
 
         @Override
         public void onErrorResponse(VolleyError error) {
-                Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show();
+            texto.setText("No hay negocios en esta sección");
         }
 
         @Override

@@ -3,9 +3,6 @@ package estefania.com.cxpress;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,8 +30,6 @@ public class NegocioActivity extends AppCompatActivity implements Response.Liste
     int idVendedor, idNegocio;
 
     TextView txtViewNombreNegocio;
-    ImageButton imgBtnRegresar;
-    Button btnNuevoProducto;
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -53,20 +48,10 @@ public class NegocioActivity extends AppCompatActivity implements Response.Liste
         recuperarId();
 
         txtViewNombreNegocio = findViewById(R.id.txtViewNombreNegocio);
-        imgBtnRegresar = findViewById(R.id.imgBtnRegresar);
-        btnNuevoProducto = findViewById(R.id.btnNuevoProducto);
 
         request = Volley.newRequestQueue(this);
 
         txtViewNombreNegocio.setText(bundle.getString("nombre"));
-
-        imgBtnRegresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
 
 
         cargarDatos();
