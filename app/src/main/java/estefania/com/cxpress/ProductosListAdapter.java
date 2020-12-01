@@ -1,8 +1,10 @@
 package estefania.com.cxpress;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,15 +21,15 @@ public class ProductosListAdapter extends BaseAdapter {
     Context context;
     ArrayList<Integer> idProductos;
     ArrayList<String> nombres;
-    ArrayList<String> cantidades;
+    ArrayList<String> precios;
     ArrayList<String> fotos;
     private static LayoutInflater inflater = null;
 
-    public ProductosListAdapter(Context context, ArrayList<Integer> idProductos, ArrayList<String> nombres, ArrayList<String> fotos, ArrayList<String> cantidades) {
+    public ProductosListAdapter(Context context, ArrayList<Integer> idProductos, ArrayList<String> nombres, ArrayList<String> fotos, ArrayList<String> precios) {
         this.context = context;
         this.idProductos = idProductos;
         this.nombres = nombres;
-        this.cantidades = cantidades;
+        this.precios = precios;
         this.fotos = fotos;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -64,7 +66,7 @@ public class ProductosListAdapter extends BaseAdapter {
         holder.imgItemProducto = row.findViewById(R.id.imgItemProducto);
 
         holder.txtViewItemNombreProducto.setText(nombres.get(position));
-        holder.txtViewItemCantidadProducto.setText(cantidades.get(position));
+        holder.txtViewItemCantidadProducto.setText(precios.get(position));
         if(fotos.get(position)!="null") {
             String urlFoto = "https://appsmoviles2020.000webhostapp.com/imagenes/"+fotos.get(position);
             try {
@@ -78,7 +80,17 @@ public class ProductosListAdapter extends BaseAdapter {
             }
         }
 
-
+        row.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, ProductoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("idProducto", idProductos.get(position).intValue());
+                bundle.putString("nombre", nombres.get(position));
+                i.putExtra("datos", bundle);
+                context.startActivity(i);
+            }
+        });
         return row;
     }
 }
