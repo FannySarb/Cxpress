@@ -75,7 +75,7 @@ public class CarnesActivity extends AppCompatActivity implements Response.Listen
             }
 
             adapter = new NegociosListAdapter(this, idNegocios, nombres, mercados);
-            ListView listNegocios = findViewById(R.id.listNegocios);
+            ListView listNegocios = findViewById(R.id.listTarjetas);
             listNegocios.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();

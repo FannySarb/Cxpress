@@ -1,5 +1,6 @@
 package estefania.com.cxpress.ui.perfil;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +9,7 @@ import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +33,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import estefania.com.cxpress.MetodosPagoActivity;
 import estefania.com.cxpress.R;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -38,6 +41,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class PerfilFragment extends Fragment implements Response.ErrorListener, Response.Listener<JSONObject> {
 
     ImageView imgBtnFotoPerfil;
+    ImageButton btnmetodosPago;
     TextView editNombrePerfil, editCorreoPerfil, editDireccionPerfil;
     String fotoAnterior;
     int idComprador;
@@ -58,7 +62,7 @@ public class PerfilFragment extends Fragment implements Response.ErrorListener, 
         editNombrePerfil = root.findViewById(R.id.editNombrePerfil);
         editCorreoPerfil = root.findViewById(R.id.editCorreoPerfil);
         editDireccionPerfil = root.findViewById(R.id.editDireccionPerfil);
-
+        btnmetodosPago=root.findViewById(R.id.mPago);
 
         request = Volley.newRequestQueue(getContext());
 
@@ -69,8 +73,18 @@ public class PerfilFragment extends Fragment implements Response.ErrorListener, 
         recuperarPerfil(idComprador);
 
 
+        btnmetodosPago.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), MetodosPagoActivity.class);
+                startActivity(i);
+            }
+        });
+
         return root;
     }
+
+
 
     void recuperarPerfil(int idComprador) {
         String URL = "https://appsmoviles2020.000webhostapp.com/cliente/mostrarComprador.php?idComprador="+idComprador;

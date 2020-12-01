@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".NuevoMP">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="300dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="65dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/scan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="61dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_tarjeta_mastercard" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_chip_foreground" />
+
+        <TextView
+            android:id="@+id/numeroTarjeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="90dp"
+            android:text="**** **** **** 0000"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/banco_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="130dp"
+            android:text="Banco"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="130dp"
+            android:text="Vence"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Vence_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="130dp"
+            android:text="00/00"
+            android:textSize="15sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/scan"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="37dp"
+        android:text="Escanear tarjeta"
+        app:layout_constraintBottom_toTopOf="@+id/guardarTarjeta"
+        app:layout_constraintEnd_toEndOf="@+id/guardarTarjeta"
+        app:layout_constraintStart_toStartOf="@+id/guardarTarjeta"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <Button
+        android:id="@+id/guardarTarjeta"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="147dp"
+        android:text="Guardar Tarjeta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scan" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="28dp"
+        android:text="Información Bancaria"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

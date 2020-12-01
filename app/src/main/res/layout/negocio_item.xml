@@ -38,7 +38,7 @@
             android:text="Nombre del Negocio" />
 
         <TextView
-            android:id="@+id/txtViewItemMercadoNegocio"
+            android:id="@+id/txtViewItemNumeroTarjeta"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"

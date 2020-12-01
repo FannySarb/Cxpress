@@ -75,7 +75,7 @@ public class MariscosActivity extends AppCompatActivity implements Response.List
             }
 
             adapter = new NegociosListAdapter(this, idNegocios, nombres, mercados);
-            ListView listNegocios = findViewById(R.id.listNegocios);
+            ListView listNegocios = findViewById(R.id.listTarjetas);
             listNegocios.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();

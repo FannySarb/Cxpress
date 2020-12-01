@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtViewMisNegocios"
+        android:id="@+id/txtViewMisMPagos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listNegocios"
+        android:id="@+id/listTarjetas"
         android:layout_width="wrap_content"
         android:layout_height="519dp"
         android:layout_marginBottom="60dp"

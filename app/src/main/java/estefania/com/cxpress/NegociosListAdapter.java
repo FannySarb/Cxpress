@@ -55,7 +55,7 @@ public class NegociosListAdapter extends BaseAdapter {
 
         row = inflater.inflate(R.layout.negocio_item, null);
         holder.txtViewItemNombreNegocio = row.findViewById(R.id.txtViewItemNombreNegocio);
-        holder.txtViewItemMercadoNegocio = row.findViewById(R.id.txtViewItemMercadoNegocio);
+        holder.txtViewItemMercadoNegocio = row.findViewById(R.id.txtViewItemNumeroTarjeta);
 
 
         holder.txtViewItemNombreNegocio.setText(nombres.get(position));
