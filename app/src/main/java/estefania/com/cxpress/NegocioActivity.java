@@ -3,7 +3,7 @@ package estefania.com.cxpress;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -96,8 +96,8 @@ public class NegocioActivity extends AppCompatActivity implements Response.Liste
             }
 
             adapter = new ProductosListAdapter(this, idProductos, nombres, fotos, cantidades);
-            ListView listProductos = findViewById(R.id.listProductos);
-            listProductos.setAdapter(adapter);
+            GridView gridProductos = findViewById(R.id.gridProductos);
+            gridProductos.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();
         }
