@@ -14,8 +14,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import estefania.com.cxpress.ui.perfil.PerfilFragment;
-
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -69,10 +67,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onInfoWindowClick(Marker marker) {
                 int idMarker = Integer.parseInt(marker.getId().substring(1));
 
-                if(idMarker==3)
+                if(idMarker==0)
                 {
-                    Intent intent = new Intent(getApplicationContext(), PerfilFragment.class);
+                    Intent intent = new Intent(getApplicationContext(), NegociosActivity.class);
+                    intent.putExtra("idMercado", 3);
                     startActivity(intent);
+                }
+
+                else if(idMarker==3)
+                {
+
                 }
 
                 else {

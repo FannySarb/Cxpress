@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listTarjetas"
+        android:id="@+id/listNegocios"
         android:layout_width="395dp"
         android:layout_height="507dp"
         android:layout_marginBottom="56dp"

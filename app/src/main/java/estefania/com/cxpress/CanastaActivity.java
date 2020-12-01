@@ -4,13 +4,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AbarrotesActivity extends AppCompatActivity  {
+public class CanastaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abarrotes);
-
-
+        setContentView(R.layout.activity_canasta);
     }
 }

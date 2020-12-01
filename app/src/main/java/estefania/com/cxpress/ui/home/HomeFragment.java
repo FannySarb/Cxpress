@@ -13,8 +13,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import estefania.com.cxpress.AbarrotesActivity;
 import estefania.com.cxpress.CarnesActivity;
-import estefania.com.cxpress.FrutasyVerdurasActivity;
 import estefania.com.cxpress.MariscosActivity;
+import estefania.com.cxpress.NegociosActivity;
 import estefania.com.cxpress.R;
 
 
@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
       btnFyv.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              Intent i = new Intent(getContext(), FrutasyVerdurasActivity.class);
+              Intent i = new Intent(getContext(), NegociosActivity.class);
               startActivity(i);
           }
       });

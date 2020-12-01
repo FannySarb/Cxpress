@@ -1,7 +1,8 @@
 package estefania.com.cxpress;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -26,9 +27,10 @@ import java.util.ArrayList;
 public class NegociosActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
     ArrayList<Integer> idNegocios;
     ArrayList<String> nombres;
+    ArrayList<String> fotos;
     ArrayList<String> mercados;
     NegociosListAdapter adapter;
-
+    int idVendedor;
 
     ImageButton imgBtnRegresar;
     Button btnNuevoNegocio;
@@ -41,7 +43,13 @@ public class NegociosActivity extends AppCompatActivity implements Response.List
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_negocios);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        recuperarId();
+
         imgBtnRegresar = findViewById(R.id.imgBtnRegresar);
+        btnNuevoNegocio = findViewById(R.id.btnNuevoNegocio);
 
         request = Volley.newRequestQueue(this);
 
@@ -53,18 +61,11 @@ public class NegociosActivity extends AppCompatActivity implements Response.List
         });
 
 
-
         cargarDatos();
     }
 
     void  cargarDatos() {
-
-        Intent intent = this.getIntent();
-        Bundle extra = intent.getExtras();
-
-        int idMercado = extra.getInt("idMercado");
-
-        String URL = "https://appsmoviles2020.000webhostapp.com/vendedor/getNegociosVendedor.php?idVendedor="+idMercado;
+        String URL = "https://appsmoviles2020.000webhostapp.com/vendedor/getNegociosVendedor.php?idVendedor="+idVendedor;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, this, this);
         request.add(jsonObjectRequest);
@@ -82,19 +83,26 @@ public class NegociosActivity extends AppCompatActivity implements Response.List
             nombres = new ArrayList<String>();
             mercados = new ArrayList<String>();
             idNegocios = new ArrayList<Integer>();
+            fotos = new ArrayList<String>();
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 idNegocios.add(jsonObject.getInt("idPuesto"));
                 nombres.add(jsonObject.getString("nombre"));
+                fotos.add(jsonObject.getString("foto"));
                 mercados.add(jsonObject.getString("mercado"));
             }
 
-            adapter = new NegociosListAdapter(this, idNegocios, nombres, mercados);
-            ListView listNegocios = findViewById(R.id.listTarjetas);
+            adapter = new NegociosListAdapter(this, idNegocios, nombres, fotos, mercados);
+            ListView listNegocios = findViewById(R.id.listNegocios);
             listNegocios.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    void recuperarId() {
+        SharedPreferences sharedPreferences = getSharedPreferences("Sesion", MODE_PRIVATE);
+        idVendedor = sharedPreferences.getInt("id", 0);
     }
 }
