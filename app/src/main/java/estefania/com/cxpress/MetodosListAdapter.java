@@ -2,8 +2,6 @@ package estefania.com.cxpress;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -123,17 +121,6 @@ public class MetodosListAdapter extends BaseAdapter {
             }
         });
 
-
-        row.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, MetodosPagoActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("idInfoBancaria", idInfoBancaria.get(position).intValue());
-                i.putExtra("datos", bundle);
-                context.startActivity(i);
-            }
-        });
 
         return row;
     }
