@@ -21,7 +21,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GridProductosActivity"></activity>
         <activity android:name=".CanastaActivity" />
         <activity android:name=".NuevoMP" />
         <activity android:name=".MetodosPagoActivity" />
